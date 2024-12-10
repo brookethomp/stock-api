@@ -1,16 +1,21 @@
 {
     "name": "stock-app",
     "version": "1.0.0",
-    "description": "A simple app to populate MongoDB from a CSV file",
-    "main": "readCompanies.js",
+    "description": "A simple app to manage stock information",
+    "main": "server.js",
     "scripts": {
-        "start": "node readCompanies.js"
+        "start": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://stock-api-94f5053d60b0.herokuapp.com/"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
         "axios": "^1.7.9",
         "express": "^4.21.2",
-        "mongodb": "^6.11.0"
+        "mongodb": "^6.11.0",
+        "body-parser": "^1.20.3"
     }
 }
