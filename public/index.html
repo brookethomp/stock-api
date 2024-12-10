@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Search</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Stock Search</h1>
+        <form action="/process" method="get">
+            <label for="query">Enter a stock ticker or company name:</label>
+            <input type="text" id="query" name="query" required>
+            <div>
+                <label>
+                    <input type="radio" name="type" value="ticker" required>
+                    Search by Ticker
+                </label>
+                <label>
+                    <input type="radio" name="type" value="name" required>
+                    Search by Company Name
+                </label>
+            </div>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</body>
+</html>
