@@ -6,20 +6,18 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Middleware
-app.use(bodyParser.urlencoded({ extended: true })); // Parse form data
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Alpha Vantage API configuration
+// Alpha Vantage API 
 const STOCK_API_KEY = 'MM4A1R1XQ3HPX9LA';
 const STOCK_API_URL = 'https://www.alphavantage.co/query';
 
-// Home view (form)
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Process view with dynamic stock price retrieval
+// Process view
 app.get('/process', async (req, res) => {
     const { query, type } = req.query;
 
@@ -28,7 +26,7 @@ app.get('/process', async (req, res) => {
     }
 
     try {
-        const symbol = type === 'ticker' ? query : ''; // Handle company name conversion to ticker if required.
+        const symbol = type === 'ticker' ? query : '';
 
         console.log(`Calling API for ${type}: ${query}`);
         const response = await axios.get(STOCK_API_URL, {
@@ -63,7 +61,6 @@ app.get('/process', async (req, res) => {
     }
 });
 
-// Start the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
